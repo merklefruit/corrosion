@@ -204,7 +204,7 @@ pub struct ExecResponse {
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ExecResult {
-    Execute { rows_affected: f64, time: f64 },
+    Execute { rows_affected: usize, time: f64 },
     Error { error: String },
 }
 

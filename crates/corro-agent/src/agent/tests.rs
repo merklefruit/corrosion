@@ -361,7 +361,7 @@ async fn stress_test() -> eyre::Result<()> {
                         if !matches!(
                             body.results[i],
                             ExecResult::Execute {
-                                rows_affected: 1.0,
+                                rows_affected: 1,
                                 ..
                             }
                         ) {
