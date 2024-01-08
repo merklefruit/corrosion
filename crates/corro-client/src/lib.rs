@@ -189,7 +189,7 @@ impl CorrosionApiClient {
 
         // TODO: temporary
         let s = std::str::from_utf8(&bytes).unwrap();
-        debug!("json response: {}", s);
+        debug!("json response: '{}'", s);
 
         Ok(serde_json::from_slice(&bytes)?)
     }

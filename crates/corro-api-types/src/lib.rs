@@ -902,4 +902,17 @@ mod tests {
         let stmts: Vec<Statement> = serde_json::from_str(json).unwrap();
         println!("stmts: {stmts:?}");
     }
+
+    #[test]
+    fn test_dumb_deserialization() {
+        // some examples of valid execution results:
+        // {"results":[{"rows_affected":1,"time":0.00122276}],"time":0.002056738}
+        // {"results":[{"rows_affected":1,"time":0.000758735},{"rows_affected":1,"time":0.000111207},{"rows_affected":1,"time":0.00010754},{"rows_affected":1,"time":0.000074374},{"rows_affected":1,"time":0.000069165},{"rows_affected":1,"time":0.000074706},{"rows_affected":1,"time":0.000066332},{"rows_affected":1,"time":0.000063915},{"rows_affected":1,"time":0.000065291}],"time":0.00313473}
+
+        let json = r#"{"results":[{"rows_affected":1,"time":0.00122276}],"time":0.002056738}"#;
+        let json_bytes = json.as_bytes();
+
+        let results: ExecResponse = serde_json::from_slice(json_bytes).unwrap();
+        println!("results: {results:#?}");
+    }
 }
