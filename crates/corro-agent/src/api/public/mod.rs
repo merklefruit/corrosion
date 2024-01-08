@@ -296,7 +296,7 @@ pub async fn api_v1_transactions(
                     Ok(rows_affected) => {
                         total_rows_affected += rows_affected;
                         ExecResult::Execute {
-                            rows_affected,
+                            rows_affected: rows_affected as u64,
                             time: start.elapsed().as_secs_f64(),
                         }
                     }
