@@ -1,0 +1,13 @@
+version: "3.7"
+
+# test the private ghcr image
+services:
+  corrosion:
+    image: ghcr.io/chainbound/corrosion:latest-arm64
+    ports:
+      - "8080:8080"
+    environment:
+      - ENV_VAR1=value1
+      - ENV_VAR2=value2
+    volumes:
+      - ./infra:/etc/corrosion

@@ -187,6 +187,10 @@ impl CorrosionApiClient {
 
         let bytes = hyper::body::to_bytes(res.into_body()).await?;
 
+        // TODO: temporary
+        let s = std::str::from_utf8(&bytes).unwrap();
+        debug!("json response: {}", s);
+
         Ok(serde_json::from_slice(&bytes)?)
     }
 
